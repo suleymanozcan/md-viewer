@@ -2,6 +2,38 @@
 
 All notable user-visible changes to MD Viewer are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.0.0] - 2026-11-04
+
+MD Viewer 1.0.0 is the first sandboxed release. The direct download (Developer ID, notarized by Apple) and the Mac App Store version are the same app.
+
+### Added
+
+- **App Sandbox.** MD Viewer now runs in the macOS App Sandbox: it can read and write only what you open or allow. Documents, folders and the Quick Look preview work as before; when a document needs more than the file you opened, MD Viewer asks for it.
+- **Folder access band.** When a document needs its folder, a small band at the bottom of the window says why and offers **Grant Access…**, **Not Now** and **Don't Ask for This Folder**. It appears when the images next to a document can't be shown, when `[[links]]` and embeds can't be resolved, and when comments should be saved next to the document. **Grant Access…** opens the standard macOS folder panel, already pointed at the most likely folder. If the document is inside a folder you opened with **Open Folder…**, the band can upgrade that permission without showing the panel.
+- **Settings ▸ Folder Access.** Lists the folders you have allowed, with their path, what each one is used for and when it was last used. **Remove** takes one folder away, **Remove All** takes all of them away (nothing on your Mac is deleted), **Add Folder…** allows a folder in advance, **Choose Again…** re-selects a folder that was moved or renamed, and **Ask Again** brings back the band for folders you told MD Viewer not to ask about.
+- **Permissions are remembered.** A folder you allow stays allowed until you remove it. Documents inside it show their images, links and comments without asking again.
+- **Comments without folder access.** Until you allow the document's folder, comments are kept inside the app, and the band offers to save them next to the document. When you allow the folder, they move into `<name>.md.review.md` beside the document, so an AI agent can read them.
+- **About window** (*MD Viewer ▸ About MD Viewer*): the version and build, a button that copies the version and macOS line for support requests, links to the website, contact, source and downloads, issue reports and the privacy policy, and a **Licenses and Notices** page that shows the license texts of the bundled open-source libraries without a network connection.
+- **Help menu** links: MD Viewer Website, Report an Issue… and Privacy Policy.
+- **Mac App Store.** MD Viewer arrives on the Mac App Store as **MD Viewer for Markdown Docs**, next to the direct download.
+
+### Changed
+
+- Images next to a document, `[[links]]` and embeds, and the comment file next to a document now need your permission for the folder. Documents that need nothing beyond the file itself open exactly as before.
+- Folders you open with **Open Folder…** are remembered too (listed as "Folder browsing only"), so recent and favorite folders reopen without asking.
+- **Updating from 0.2.x:** your settings are carried over automatically the first time 1.0.0 starts. MD Viewer starts with the welcome window once; the open tabs and the recent documents list of 0.2.x are not carried over. Recent and favorite folders stay in the list, but macOS may ask you to allow a folder again: a folder marked "Grant access to open it again" needs one click and a confirmation in the folder panel.
+- **Both versions on one Mac:** if you install the direct download and the Mac App Store version on the same Mac, macOS asks once, the first time you open each of them after the other, to confirm that the app differs from the version you opened before. Choose **Open Anyway**; after that both open without asking.
+
+### Fixed
+
+- **⌘Z** (Edit ▸ Undo) now undoes a task checkbox click. Before, Undo could stay disabled after ticking a task.
+
+### Security
+
+- MD Viewer can only reach the files and folders you open or allow. A document cannot open the folder panel by itself: it appears only after you click.
+- For safety, MD Viewer refuses to take access to your whole home folder, a whole disk, system folders, Library or hidden folders, and tells you to choose the document's own folder or a folder above it that is not one of those.
+- Only your own clicks on links in a document are acted on. Clicks that a document's content generates by script are ignored.
+
 ## [0.2.2] - 2026-11-04
 
 ### Changed
