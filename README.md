@@ -259,7 +259,7 @@ shasum -a 256 ~/Downloads/MDViewer.dmg
 
 **Turn on Quick Look.** The preview extension ships inside the app. Copy the app to Applications and open it once. If the preview still does not appear, open System Settings and look for the Quick Look extensions list (on recent macOS versions it is under *Login Items & Extensions*; the exact path differs between macOS versions) and switch on *MD Viewer Quick Look*. If another Markdown Quick Look extension is installed, only one of them can handle `.md` files.
 
-**Mac App Store: coming soon.** MD Viewer is planned for the Mac App Store as "MD Viewer – Markdown Reader". The direct download here stays the main channel.
+**Mac App Store: coming soon.** MD Viewer is coming to the Mac App Store as "MD Viewer for Markdown Docs". The direct download here stays the main channel.
 
 **Language.** The interface is available in English and Türkçe and follows your system language. Change it under *View ▸ Language* or in Settings.
 

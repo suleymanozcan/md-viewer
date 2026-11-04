@@ -259,7 +259,7 @@ shasum -a 256 ~/Downloads/MDViewer.dmg
 
 **Quick Look'u açın.** Önizleme uzantısı uygulamanın içinde gelir. Uygulamayı Applications'a kopyalayıp bir kez açın. Önizleme yine görünmezse Sistem Ayarları'nı açıp Hızlı Bakış uzantıları listesini arayın (yeni macOS sürümlerinde *Giriş Öğeleri ve Uzantılar* altındadır; tam yol macOS sürümüne göre değişir) ve *MD Viewer Quick Look*'u etkinleştirin. Başka bir Markdown Quick Look uzantısı kuruluysa `.md` dosyalarını bunlardan yalnızca biri ele alabilir.
 
-**Mac App Store: yakında.** MD Viewer'ın Mac App Store'a "MD Viewer – Markdown Reader" adıyla girmesi planlanıyor. Buradaki doğrudan indirme ana kanal olarak kalır.
+**Mac App Store: yakında.** MD Viewer, Mac App Store'a "MD Viewer for Markdown Docs" adıyla geliyor. Buradaki doğrudan indirme ana kanal olarak kalır.
 
 **Dil.** Arayüz Türkçe ve English olarak sunulur ve sistem dilinizi izler. *Görünüm ▸ Dil* menüsünden ya da Ayarlar'dan değiştirin.
 
