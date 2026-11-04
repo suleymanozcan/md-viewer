@@ -13,6 +13,8 @@ A step-by-step guide, from the first launch to a full AI-agent review loop. The 
 - [7. The AI-agent workflow](#7-the-ai-agent-workflow)
 - [8. Print and export](#8-print-and-export)
 - [9. Settings](#9-settings)
+- [10. Folder access](#10-folder-access)
+- [11. About and Help](#11-about-and-help)
 
 ## 1. First launch
 
@@ -33,6 +35,7 @@ You can also do it in Finder: select a `.md` file, press **⌘I**, choose MD Vie
 - **File ▸ Open…** (**⌘O**) opens a document in a new tab. **File ▸ Open Recent** lists recent documents.
 - **File ▸ Open Folder…** (**⇧⌘O**) opens a folder. Its Markdown files appear in the **Files** sidebar (**⌥⌘3**) and the list updates live as files change.
 - Click a file to open a tab, **⌥-click** to open it in the right pane, **⌘-click** to open it in a new window.
+- When a document needs the folder next to it (its images, `[[links]]` or its comment file), a band at the bottom of the window asks for permission. See [10. Folder access](#10-folder-access).
 
 <p align="center">
   <img src="screenshots/files-en.png" width="300" alt="The Files sidebar with a folder tree">
@@ -52,7 +55,7 @@ You can also do it in Finder: select a `.md` file, press **⌘I**, choose MD Vie
 ## 5. Open an Obsidian vault
 
 1. Open any note that lives inside an Obsidian vault (a folder with a `.obsidian` folder). Or use **Open Folder…** on the vault folder.
-2. If you opened a single note, MD Viewer offers once to index the vault: click **Index Vault**. The index stays in memory and is never written to disk.
+2. If you opened a single note, MD Viewer first needs access to the vault's top folder: the band at the bottom asks for it (see [10. Folder access](#10-folder-access)). Then it offers once to index the vault: click **Index Vault**. The index stays in memory and is never written to disk.
 3. Use the **Links** sidebar (**⌥⌘6**) for backlinks and outgoing links, **Files ▸ #** for tags, **⌘K** to jump to any note, **⇧⌘F** to search all notes, and **⌘F** to search the current note.
 4. Hover over a `[[link]]` in Flow for a preview card. Click a link to open the note, **⌥-click** for the right pane, **⌘-click** for a new window.
 
@@ -98,7 +101,7 @@ Open **Changes** (**⌥⌘4**). It compares the document with the last version y
 
 ### Step 3: comment
 
-Select the text you want to discuss (or click the **+** beside a block) and press **⇧⌘K**. Type your comment in the **Comments** sidebar (**⌥⌘5**) and press **⌘↩** to save. Your document is not touched: comments are saved next to it as `<document>.md.review.md`.
+Select the text you want to discuss (or click the **+** beside a block) and press **⇧⌘K**. Type your comment in the **Comments** sidebar (**⌥⌘5**) and press **⌘↩** to save. Your document is not touched: comments are saved next to it as `<document>.md.review.md`. If MD Viewer has no permission for the document's folder yet, the comments stay inside the app until you click **Grant Access…** in the band; then they move next to the document, where an agent can read them.
 
 <p align="center">
   <img src="screenshots/comment-en.png" width="300" alt="Writing a comment">
@@ -153,10 +156,67 @@ Click a `- [ ]` checkbox to tick it; MD Viewer writes the change to the `.md` fi
 
 ## 9. Settings
 
-Open Settings with **⌘,** or the gear button. There you set the theme, default view and zoom, printing theme, whether new documents open in a tab or a window, follow defaults, Markdown dialect, the vault prompt, the interface language, remote images and the default app. The language change applies after a restart.
+Open Settings with **⌘,** or the gear button. There you set the theme, default view and zoom, printing theme, whether new documents open in a tab or a window, follow defaults, Markdown dialect, the vault prompt, the interface language, remote images, the folders you have allowed ([Folder access](#10-folder-access)) and the default app. The language change applies after a restart.
 
 <p align="center">
   <img src="screenshots/settings-en.png" width="640" alt="The Settings window">
 </p>
+
+## 10. Folder access
+
+MD Viewer runs in the macOS App Sandbox, so it can only read what you open or allow. Opening a document never asks for anything; a document that points to things *next to* it (its images, `[[links]]` and embeds, its comment file) needs the folder.
+
+### Allow a folder
+
+1. Open a document whose images live in its own folder. If they cannot be shown yet, a band appears at the bottom of the window: *Allow folder access to show this document's images*, with the number of missing images.
+2. Click **Grant Access…**. The standard macOS folder panel opens in the folder MD Viewer suggests: the document's own folder, or the folder above it when the document refers to `../images`. For a note in an Obsidian vault, choose the top folder of the vault so that `[[links]]` and embeds can be found.
+3. Choose the folder (the document must be inside it) and click **Grant Access**. The document redraws with its images, a short notice says *Access granted*, and MD Viewer remembers the folder.
+
+<p align="center">
+  <img src="screenshots/access-band-en.png" width="760" alt="The folder access band at the bottom of a document with missing images">
+</p>
+
+The band has three buttons:
+
+- **Grant Access…** opens the panel as described above. If the document is inside a folder you already opened with **Open Folder…**, it can upgrade that permission without showing the panel.
+- **Not Now** hides the band for this document until you quit MD Viewer.
+- **Don't Ask for This Folder** stops the band for every document in that folder. Bring it back with **Ask Again** in Settings.
+
+The band says what is missing. Besides the images it can be *Allow folder access to resolve this note's links and embeds*, or, after your first comment, *Comments are stored inside MD Viewer for now*, which offers to write `<name>.md.review.md` next to the document so that an AI agent can read your comments. Clicking a link to a Markdown file outside the allowed folders opens the panel directly, for the folder of that file.
+
+If you choose a folder that does not contain the document, MD Viewer says so and lets you choose again. For safety it also refuses your whole home folder, a whole disk, system folders, Library and hidden folders: choose the document's own folder, or a folder above it that is not one of those.
+
+### Review your allowed folders
+
+Open **Settings ▸ Folder Access** (**⌘,**). Each row shows the folder, its path, how it is used (*Documents, images and links*, or *Folder browsing only* for a folder you opened with **Open Folder…**) and when it was last used.
+
+- **Remove** and **Remove All** take access away. Nothing on your Mac is deleted; MD Viewer asks again when a document needs the folder.
+- **Add Folder…** allows a folder in advance.
+- **Choose Again…** appears for a folder that was moved, renamed or removed: point MD Viewer at its new place.
+- **Ask Again** brings the band back for folders you told MD Viewer not to ask about.
+
+<p align="center">
+  <img src="screenshots/settings-access-en.png" width="400" alt="Settings scrolled to the Folder Access section with one allowed folder">
+</p>
+
+The list is stored only on your Mac, as macOS security-scoped bookmarks, and never leaves it. See [PRIVACY.md](../PRIVACY.md).
+
+### After updating from 0.2.x
+
+Your settings carry over automatically. MD Viewer 1.0 is sandboxed, so it starts with the welcome window once; the open tabs and the recent documents list of 0.2.x are not carried over. Recent and favorite folders stay in the list, but a folder marked *Grant access to open it again* needs one confirmation: click it, choose the folder in the panel and click **Grant Access**.
+
+### Both versions on one Mac
+
+The direct download and the Mac App Store version are the same app with the same identifier. If you install both, macOS may ask once, the first time you open the second one, whether you really want to open an app that differs from the version you opened before. Choose **Open Anyway**; after that both open without asking.
+
+## 11. About and Help
+
+**MD Viewer ▸ About MD Viewer** shows the version and build. Click the version line to copy it, together with your macOS version and processor architecture (for example `MD Viewer 1.0.0 (Build …)` and `macOS … · arm64`), and paste it into a support request. The buttons open the website, a new email to the developer, the source and downloads page, the issue form and the privacy policy. **Licenses and Notices** lists the open-source libraries inside MD Viewer with their full license texts, shown without a network connection.
+
+<p align="center">
+  <img src="screenshots/about-en.png" width="380" alt="The About window">
+</p>
+
+The **Help** menu has **MD Viewer Website**, **Report an Issue…** and **Privacy Policy**.
 
 Need help? See [SUPPORT.md](../SUPPORT.md).

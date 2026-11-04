@@ -22,7 +22,7 @@ MD Viewer 1.0.0 is the first sandboxed release. The direct download (Developer I
 - Images next to a document, `[[links]]` and embeds, and the comment file next to a document now need your permission for the folder. Documents that need nothing beyond the file itself open exactly as before.
 - Folders you open with **Open Folder…** are remembered too (listed as "Folder browsing only"), so recent and favorite folders reopen without asking.
 - **Updating from 0.2.x:** your settings are carried over automatically the first time 1.0.0 starts. MD Viewer starts with the welcome window once; the open tabs and the recent documents list of 0.2.x are not carried over. Recent and favorite folders stay in the list, but macOS may ask you to allow a folder again: a folder marked "Grant access to open it again" needs one click and a confirmation in the folder panel.
-- **Both versions on one Mac:** if you install the direct download and the Mac App Store version on the same Mac, macOS asks once, the first time you open each of them after the other, to confirm that the app differs from the version you opened before. Choose **Open Anyway**; after that both open without asking.
+- **Both versions on one Mac:** if you install the direct download and the Mac App Store version on the same Mac, macOS may ask once, the first time you open the second one, to confirm that the app differs from the version you opened before. Choose **Open Anyway**; after that both open without asking.
 
 ### Fixed
 

@@ -10,7 +10,7 @@ MD Viewer is made by [Minata Entertainment, LLC](https://minata.dev/en/). Here i
 
 ### 1. Check the FAQ and the guide
 
-- [FAQ](README.md#faq): zoom keys on a Turkish keyboard, turning Obsidian syntax off, remote images, print theme, Quick Look.
+- [FAQ](README.md#faq): zoom keys on a Turkish keyboard, turning Obsidian syntax off, remote images, print theme, Quick Look, folder access.
 - [Usage guide](docs/USAGE.md): step-by-step guide with screenshots, from first launch to the AI-agent workflow.
 - [Changelog](CHANGELOG.md): what changed in each version.
 
@@ -19,7 +19,7 @@ MD Viewer is made by [Minata Entertainment, LLC](https://minata.dev/en/). Here i
 [Report a bug or ask for a feature](https://github.com/suleymanozcan/md-viewer/issues/new/choose). Please include:
 
 - your macOS version (Apple menu ▸ About This Mac);
-- your MD Viewer version (MD Viewer ▸ About MD Viewer);
+- your MD Viewer version (MD Viewer ▸ About MD Viewer; click the version line there to copy it);
 - what you did, what you expected and what happened;
 - a small Markdown sample that shows the problem. **Do not attach private documents.**
 
@@ -39,7 +39,7 @@ MD Viewer, [Minata Entertainment, LLC](https://minata.dev/tr/) tarafından geli�
 
 ### 1. SSS'ye ve kılavuza bakın
 
-- [Sık Sorulan Sorular](README.tr.md#sık-sorulan-sorular): Türkçe klavyede yakınlaştırma tuşları, Obsidian söz diziminin kapatılması, uzak görseller, yazdırma teması, Quick Look.
+- [Sık Sorulan Sorular](README.tr.md#sık-sorulan-sorular): Türkçe klavyede yakınlaştırma tuşları, Obsidian söz diziminin kapatılması, uzak görseller, yazdırma teması, Quick Look, klasör erişimi.
 - [Kullanım kılavuzu](docs/USAGE.tr.md): ilk açılıştan yapay zekâ ajanı iş akışına, ekran görüntülü adım adım kılavuz.
 - [Değişiklik günlüğü](CHANGELOG.md): her sürümde ne değişti.
 
@@ -48,7 +48,7 @@ MD Viewer, [Minata Entertainment, LLC](https://minata.dev/tr/) tarafından geli�
 [Hata bildirin ya da özellik isteyin](https://github.com/suleymanozcan/md-viewer/issues/new/choose). Lütfen şunları yazın:
 
 - macOS sürümünüz (Apple menüsü ▸ Bu Mac Hakkında);
-- MD Viewer sürümünüz (MD Viewer ▸ MD Viewer Hakkında);
+- MD Viewer sürümünüz (MD Viewer ▸ MD Viewer Hakkında; oradaki sürüm satırına tıklayarak kopyalayabilirsiniz);
 - ne yaptınız, ne bekliyordunuz, ne oldu;
 - sorunu gösteren küçük bir Markdown örneği. **Özel belgelerinizi eklemeyin.**
 

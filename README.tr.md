@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  macOS 14 ve üzeri · Apple silikon ve Intel · Developer ID ile imzalı, Apple tarafından notarize edilmiş · Ücretsiz, hesapsız, çevrimdışı çalışır
+  macOS 14 ve üzeri · Apple silikon ve Intel · App Sandbox, Developer ID ile imzalı, Apple tarafından notarize edilmiş · Ücretsiz, hesapsız, çevrimdışı çalışır
 </p>
 
 <p align="center">
@@ -35,6 +35,7 @@
   <a href="#neden-md-viewer">Neden</a> ·
   <a href="#özellikler">Özellikler</a> ·
   <a href="#kurulum">Kurulum</a> ·
+  <a href="#klasör-erişimi">Klasör erişimi</a> ·
   <a href="#klavye-kısayolları">Kısayollar</a> ·
   <a href="#sık-sorulan-sorular">SSS</a> ·
   <a href="docs/USAGE.tr.md">Kullanım kılavuzu</a> ·
@@ -45,8 +46,8 @@
 
 - **Ajanların yazdığını, yazılırken okuyun.** Yapay zekâ kodlama ajanlarının planları, şartnameleri ve mimari notları Markdown'dır. MD Viewer ajan dosyayı düzenlerken onu takip eder, neyin değiştiğini gösterir, herhangi bir pasaja yorum bırakmanızı sağlar ve bu yorumları ajana hazır bir istem olarak geri verir.
 - **Obsidian kasaları için.** Herhangi bir notu ya da klasörü açın; Obsidian'ı başlatmadan wikilink, gömü, callout, özellik kartı, geri bağlantı, etiket, hızlı geçiş, kasada arama ve canvas'ları alın.
-- **Hafif ve yerel.** SwiftUI ile yazılmış yerel bir uygulama; indirme boyutu yaklaşık 13 MB, Electron yok, hesap yok. Mermaid, KaTeX ve gerisi uygulamanın içinde olduğundan ağ bağlantısı kurmaz.
-- **Ücretsiz.** Reklam yok, telemetri yok, abonelik yok. Belgeleriniz Mac'inizde kalır. Bkz. [PRIVACY.md](PRIVACY.md).
+- **Hafif ve yerel.** SwiftUI ile yazılmış yerel bir uygulama; indirme boyutu yaklaşık 13 MB, Electron yok, hesap yok. Mermaid, KaTeX ve gerisi uygulamanın içinde olduğundan tümüyle çevrimdışı çalışır.
+- **Ücretsiz, korumalı alanda ve gizli.** Reklam yok, telemetri yok, abonelik yok. Belgeleriniz Mac'inizde kalır ve MD Viewer macOS App Sandbox (korumalı alan) içinde çalışır: yalnızca açtığınız ya da izin verdiğiniz öğeleri okuyabilir ([Klasör erişimi](#klasör-erişimi) bölümüne bakın). Bkz. [PRIVACY.md](PRIVACY.md).
 
 ## Özellikler
 
@@ -131,9 +132,9 @@ Belgeler cam bir şeritte sekmeler olarak açılır. İki belgeyi (ya da aynı b
 
 #### Klasörler, kasalar, bağlantılar ve etiketler
 
-**Klasör Aç…** (**⇧⌘O**) bir klasörün Markdown dosyalarını **Dosyalar** kenar çubuğunda (**⌥⌘3**) listeler. Liste canlı güncellenir; favori ve son klasörler tek tıkla açılır. Bir dosyaya tıklayınca yeni sekme açılır; **⌥-tık** sağ bölmede, **⌘-tık** yeni pencerede açar.
+**Klasör Aç…** (**⇧⌘O**) bir klasörün Markdown dosyalarını **Dosyalar** kenar çubuğunda (**⌥⌘3**) listeler. Klasörü standart macOS panelinde seçersiniz; MD Viewer klasörü okuma iznini de bu sayede alır ve klasörü hatırlar. Liste canlı güncellenir; favori ve son klasörler tek tıkla açılır. Bir dosyaya tıklayınca yeni sekme açılır; **⌥-tık** sağ bölmede, **⌘-tık** yeni pencerede açar.
 
-Bir Obsidian kasasındaki bir notu açtığınızda MD Viewer klasörü dizinlemeyi bir kez önerir. Dizin yalnızca bellekte tutulur, hiçbir yere yazılmaz; öneriyi Ayarlar'dan kapatabilirsiniz. Dizinle birlikte **Bağlantılar** kenar çubuğu (**⌥⌘6**) geri ve giden bağlantıları bağlam satırlarıyla gösterir; **Dosyalar ▸ Etiketler** (**#** düğmesi) iç içe etiket ağacını gösterir: üst etiket alt etiketlerini kapsar.
+Bir Obsidian kasasındaki bir notu açtığınızda MD Viewer klasörü dizinlemeyi bir kez önerir. Tek başına açılan bir not için önce kasanın en üst klasörüne erişim gerekir; şerit bunu ister ([Klasör erişimi](#klasör-erişimi)). Dizin yalnızca bellekte tutulur, hiçbir yere yazılmaz; öneriyi Ayarlar'dan kapatabilirsiniz. Dizinle birlikte **Bağlantılar** kenar çubuğu (**⌥⌘6**) geri ve giden bağlantıları bağlam satırlarıyla gösterir; **Dosyalar ▸ Etiketler** (**#** düğmesi) iç içe etiket ağacını gösterir: üst etiket alt etiketlerini kapsar.
 
 <p align="center">
   <img src="docs/screenshots/vault-prompt-tr.png" width="860" alt="Bir Obsidian kasasını dizinlemeyi öneren tek seferlik bildirim">
@@ -196,7 +197,7 @@ Dosya değiştiğinde belge kendiliğinden yenilenir; ajan dosyayı üzerine yaz
 
 #### Yorumlar ve Ajana Gönder
 
-Metni seçin ya da bir bloğun yanındaki **+** işaretine tıklayın ve yorum eklemek için **⇧⌘K**'ya basın. Yorumlar belgenize **dokunmaz**: yanındaki `<belge>.md.review.md` adlı bir yan dosyada saklanır. **Ajana Gönder** (**⌥⌘P** ya da *Düzen ▸ Ajan İçin İstemi Kopyala*) açık yorumların hepsini belge yolu ve alıntılarla biçimli bir istem olarak panoya koyar; ajanınıza yapıştırmanız yeter.
+Metni seçin ya da bir bloğun yanındaki **+** işaretine tıklayın ve yorum eklemek için **⇧⌘K**'ya basın. Yorumlar belgenize **dokunmaz**: yanındaki `<belge>.md.review.md` adlı bir yan dosyada saklanır. MD Viewer belgenin klasörüne henüz erişemiyorsa yorumları uygulamanın içinde tutar ve pencerenin altındaki şeritte **Erişim Ver…** önerir; klasöre izin verdiğinizde yorumlar belgenin yanına taşınır ([Klasör erişimi](#klasör-erişimi)). **Ajana Gönder** (**⌥⌘P** ya da *Düzen ▸ Ajan İçin İstemi Kopyala*) açık yorumların hepsini belge yolu ve alıntılarla biçimli bir istem olarak panoya koyar; ajanınıza yapıştırmanız yeter.
 
 <table>
   <tr>
@@ -236,11 +237,20 @@ Finder'da bir Markdown dosyasında **Boşluk** tuşuna basın; aynı oluşturucu
 
 #### Ayarlar
 
-Tema, varsayılan görünüm ve yakınlaştırma, yazdırma teması, yeni belgelerin nasıl açılacağı (sekme ya da pencere), takip varsayılanları, Markdown lehçesi, kasa dizinleme önerisi, arayüz dili (Sistem, Türkçe ya da English; yeniden başlatınca uygulanır), uzak görseller ve varsayılan Markdown uygulaması.
+Tema, varsayılan görünüm ve yakınlaştırma, yazdırma teması, yeni belgelerin nasıl açılacağı (sekme ya da pencere), takip varsayılanları, Markdown lehçesi, kasa dizinleme önerisi, arayüz dili (Sistem, Türkçe ya da English; yeniden başlatınca uygulanır), uzak görseller, izin verdiğiniz klasörler ([Klasör erişimi](#klasör-erişimi)) ve varsayılan Markdown uygulaması.
 
 <p align="center">
   <img src="docs/screenshots/settings-tr.png" width="720" alt="Ayarlar penceresinin üst ve alt bölümleri yan yana">
   <br><sub>Ayarlar (pencerenin üst ve alt bölümü yan yana).</sub>
+</p>
+
+#### Hakkında penceresi ve Yardım menüsü
+
+**MD Viewer ▸ MD Viewer Hakkında** sürümü ve derleme numarasını gösterir. Sürüm satırına tıklayınca macOS sürümünüz ve işlemci mimarinizle birlikte panoya kopyalanır; destek talebinize yapıştırabilirsiniz. Düğmeler web sitesini, geliştiriciye yeni bir e-postayı, kaynak ve indirmeler sayfasını, sorun formunu ve gizlilik politikasını varsayılan uygulamalarınızda açar. **Lisanslar ve Bildirimler**, MD Viewer'ın içindeki açık kaynak kütüphaneleri tam lisans metinleriyle listeler; metinler uygulamayla gelir ve ağ bağlantısı olmadan açılır. **Yardım** menüsünde aynı web sitesi, sorun ve gizlilik bağlantıları bulunur.
+
+<p align="center">
+  <img src="docs/screenshots/about-tr.png" width="380" alt="Sürüm, geliştirici kartı ve altı bağlantı düğmesiyle Hakkında penceresi">
+  <br><sub>Hakkında penceresi. Sürümü kopyalamak için tıklayın.</sub>
 </p>
 
 ## Kurulum
@@ -259,11 +269,58 @@ shasum -a 256 ~/Downloads/MDViewer.dmg
 
 **Quick Look'u açın.** Önizleme uzantısı uygulamanın içinde gelir. Uygulamayı Applications'a kopyalayıp bir kez açın. Önizleme yine görünmezse Sistem Ayarları'nı açıp Hızlı Bakış uzantıları listesini arayın (yeni macOS sürümlerinde *Giriş Öğeleri ve Uzantılar* altındadır; tam yol macOS sürümüne göre değişir) ve *MD Viewer Quick Look*'u etkinleştirin. Başka bir Markdown Quick Look uzantısı kuruluysa `.md` dosyalarını bunlardan yalnızca biri ele alabilir.
 
-**Mac App Store: yakında.** MD Viewer, Mac App Store'a "MD Viewer for Markdown Docs" adıyla geliyor. Buradaki doğrudan indirme ana kanal olarak kalır.
+<!-- APP_STORE_URL -->
+
+**Mac App Store: yakında.** MD Viewer, Mac App Store'a "MD Viewer for Markdown Docs" adıyla geliyor. Buradaki doğrudan indirme ana kanal olarak kalır. İkisi de aynı korumalı alandaki uygulamadır.
+
+**0.2.x'ten güncelleme.** Eski uygulamanın yerine yenisini koyun. Ayarlarınız kendiliğinden taşınır. MD Viewer 1.0 korumalı alanda çalıştığı için bir kez karşılama penceresiyle açılır ve son klasörlerden biri yeniden izin isteyebilir; [SSS](#sık-sorulan-sorular)'ye bakın.
+
+**İki sürüm aynı Mac'te.** Doğrudan indirmeyi ve Mac App Store sürümünü birlikte kurarsanız macOS, ikincisini ilk açtığınızda bir kez, daha önce açtığınız sürümden farklı bir uygulamayı gerçekten açmak isteyip istemediğinizi sorabilir. **Yine de Aç**'ı seçin; sonrasında ikisi de sormadan açılır.
 
 **Dil.** Arayüz Türkçe ve English olarak sunulur ve sistem dilinizi izler. *Görünüm ▸ Dil* menüsünden ya da Ayarlar'dan değiştirin.
 
 **Görünüm.** macOS 26'da arayüz Liquid Glass kullanır. macOS 14 ve 15'te sistemin yarı saydam malzemelerini kullanır.
+
+## Klasör erişimi
+
+MD Viewer macOS **App Sandbox** (korumalı alan) içinde çalışır; doğrudan indirme ile Mac App Store sürümü aynı biçimde korumalı alandadır. Sizin için bunun tek bir kuralı var: MD Viewer yalnızca açtığınız ya da izin verdiğiniz öğeleri okuyabilir. Diskinizde gezinemez ve hiçbir belge onu, izin verdiğiniz klasörlerin dışındaki dosyaları okumaya yönlendiremez.
+
+**Bir belgeyi açmak hiçbir zaman izin istemez.** İzin yalnızca bir belge, *yanındaki* şeylere işaret ettiğinde gerekir:
+
+- belgenin yanındaki görseller, örneğin `![grafik](images/chart.png)`;
+- `[[wikilink]]`lerin ve `![[gömü]]`lerin başvurduğu diğer notlar (kasada, kasanın en üst klasörü);
+- yorum yan dosyası `<ad>.md.review.md`; yapay zekâ ajanının okuyabilmesi için belgenin yanında durması gerekir.
+
+Böyle bir durumda belge penceresinin altında bir **şerit** belirir ve neyin eksik olduğunu söyler; örneğin *Bu belgedeki resimleri göstermek için klasöre erişim verin*. Şerit yalnızca bir ileti ve üç düğme gösterir; kendiliğinden hiçbir zaman panel açmaz.
+
+<p align="center">
+  <img src="docs/screenshots/access-band-tr.png" width="860" alt="Resimleri gösterilemeyen bir belge; altta Erişim Ver, Şimdi Değil ve Bu Klasör İçin Sorma düğmeli klasör erişim şeridi">
+  <br><sub>Şerit: bu belgenin resimleri, MD Viewer'ın henüz okuma izni olmayan bir klasörde duruyor.</sub>
+</p>
+
+- **Erişim Ver…** standart macOS klasör panelini açar. Panel, MD Viewer'ın ihtiyaç duyduğunu düşündüğü klasörde açılır: belgenin kendi klasörü ya da belge `../images` veya `![[../not]]` gibi bir yola başvuruyorsa bir üst klasör. Bir klasör seçin (belge onun içinde olmalı) ve **Erişim Ver**'e tıklayın. Belge hemen resimleri ve bağlantılarıyla yeniden çizilir; yorumları da yanına taşınır.
+- **Şimdi Değil** şeridi, MD Viewer'dan çıkana kadar bu belge için gizler.
+- **Bu Klasör İçin Sorma** o klasördeki belgeler için şeridi durdurur. Ayarlar'dan geri getirebilirsiniz.
+
+Belge, daha önce **Klasör Aç…** ile açtığınız bir klasörün içindeyse **Erişim Ver…** paneli göstermeden o izni yükseltebilir. İzin verilen klasörlerin dışındaki bir Markdown dosyasına giden bağlantıya tıklamak, paneli doğrudan o dosyanın klasörü için açar.
+
+Güvenlik için MD Viewer ev klasörünüzün tamamına, bir diskin tamamına, sistem klasörlerine, Library'ye ya da gizli klasörlere erişim almaz. Belgenin kendi klasörünü ya da bunların dışında kalan bir üst klasörü seçin.
+
+**MD Viewer izin verdiğiniz klasörleri hatırlar.** Bundan sonra izinli bir klasörün içindeki belgeler resimleri, bağlantıları ve yorumlarıyla, şeritsiz açılır. İzin yalnızca Mac'inizde, macOS güvenlik kapsamlı yer imi olarak saklanır ve Mac'inizden hiç çıkmaz.
+
+**Ayarlar ▸ Klasör Erişimi** izin verilen her klasörü yoluyla, nasıl kullanıldığıyla (*Belgeler, resimler ve bağlantılar* ya da **Klasör Aç…** ile açtığınız klasör için *Yalnızca klasör gezintisi*) ve son kullanım zamanıyla listeler.
+
+- **Kaldır** tek bir klasörün, **Hepsini Kaldır** tümünün erişimini kaldırır. Mac'inizde hiçbir şey silinmez; bir belge klasöre ihtiyaç duyduğunda MD Viewer yeniden sorar.
+- **Klasör Ekle…** bir klasöre önceden izin verir; böylece belgeleri için şerit çıkmaz.
+- **Yeniden Seç…** taşınmış, yeniden adlandırılmış ya da silinmiş bir klasör için görünür; MD Viewer'a yeni yerini gösterin.
+- **Yeniden Sor**, MD Viewer'a sormamasını söylediğiniz klasörler için şeridi geri getirir.
+
+<p align="center">
+  <img src="docs/screenshots/settings-access-tr.png" width="440" alt="Klasör Erişimi bölümüne kaydırılmış Ayarlar penceresi; izin verilmiş tek klasör, Kaldır ve Klasör Ekle düğmeleriyle listelenir">
+  <br><sub>Ayarlar ▸ Klasör Erişimi: izin verdiğiniz klasörler.</sub>
+</p>
+
+**Size ne kazandırır.** Yukarıdaki listeyi macOS'un kendisi uygular; bu yüzden MD Viewer Mac'inizin geri kalanını okuyamaz ve listenin tamamını Ayarlar'da görüp değiştirebilirsiniz. Korumalı alanın gizlilik faydası budur; bkz. [PRIVACY.md](PRIVACY.md).
 
 ## Klavye kısayolları
 
@@ -296,7 +353,7 @@ Tüm kısayollar menülerde de görünür.
 
 ## Gizlilik
 
-MD Viewer hiçbir veri toplamaz; hesap, analitik ya da izleme içermez ve ağ bağlantısı kurmaz. Uzak görseller varsayılan olarak kapalıdır; açarsanız görsel sunucuları, her web sitesi gibi, IP adresinizi görür. Uygulamanın dosyalarınıza yazdığı tek şeyler, tıkladığınız bir görev kutusu ve `.review.md` yorum yan dosyasıdır. Politikanın tamamı [PRIVACY.md](PRIVACY.md) dosyasında (English ve Türkçe).
+MD Viewer hiçbir veri toplamaz; hesap, analitik ya da izleme içermez ve ağ üzerinden hiçbir şey göndermez: MD Viewer'ın kendi kodunda ağ iletişimi, güncelleme denetimi ve telemetri yoktur. Giden bağlantılar için sandbox hakkı yalnızca belgelerinizi çizen macOS web motoru onsuz başlayamadığı için vardır. Uzak görseller varsayılan olarak kapalıdır; açarsanız görsel sunucuları, her web sitesi gibi, IP adresinizi görür. Verdiğiniz klasör izinleri yalnızca Mac'inizde saklanır. Uygulamanın dosyalarınıza yazdığı tek şeyler, tıkladığınız bir görev kutusu ve `.review.md` yorum yan dosyasıdır. Politikanın tamamı [PRIVACY.md](PRIVACY.md) dosyasında (English ve Türkçe).
 
 ## Sık Sorulan Sorular
 
@@ -316,13 +373,22 @@ Beyaz kâğıt üzerinde siyah metin daha okunaklıdır ve mürekkep tasarrufu s
 [Kurulum](#kurulum) bölümüne bakın. Uygulamayı Applications'tan bir kez açın ve Sistem Ayarları'ndaki Hızlı Bakış uzantıları listesini kontrol edin. Yine de görünmüyorsa Terminal'de `qlmanage -r` ile Quick Look önbelleğini sıfırlayın.
 
 **MD Viewer dosyalarımı düzenler mi?**
-Yalnızca iki durumda: bir görev kutusuna tıkladığınızda (`.md` dosyası güncellenir; ⌘Z geri alır) ve yorum eklediğinizde (ayrı bir `<ad>.md.review.md` dosyasına kaydedilir; belgenin kendisi değişmez). Geri kalan her şey salt okunurdur.
+Yalnızca iki durumda: bir görev kutusuna tıkladığınızda (`.md` dosyası güncellenir; ⌘Z geri alır) ve yorum eklediğinizde (ayrı bir `<ad>.md.review.md` dosyasına kaydedilir; belgenin kendisi değişmez). Geri kalan her şey salt okunurdur; korumalı alan nedeniyle MD Viewer yalnızca açtığınız ya da izin verdiğiniz dosya ve klasörlere yazabilir.
 
 **Yorumlarım nerede saklanıyor?**
-Belgenin yanında, `<ad>.md.review.md` dosyasında. Düz Markdown'dır. Belgeyle birlikte saklayın ya da işiniz bitince silin.
+Belgenin yanında, `<ad>.md.review.md` dosyasında. Düz Markdown'dır. Belgeyle birlikte saklayın ya da işiniz bitince silin. Belgenin klasörüne izin verene kadar ([Klasör erişimi](#klasör-erişimi)) yorumlar bunun yerine uygulamanın içinde tutulur; izin verir vermez belgenin yanına taşınır.
 
 **MD Viewer güncellemeleri kendisi denetler mi?**
-Hayır. Yeni sürümleri [Sürümler sayfasından](https://github.com/suleymanozcan/md-viewer/releases) indirin. [Değişiklik günlüğü](CHANGELOG.md) neyin değiştiğini listeler.
+Hayır. Doğrudan indirme hiçbir zaman denetlemez; yeni sürümleri [Sürümler sayfasından](https://github.com/suleymanozcan/md-viewer/releases) indirin, [değişiklik günlüğü](CHANGELOG.md) neyin değiştiğini listeler. Mac App Store sürümünü App Store günceller.
+
+**MD Viewer neden klasör izni istiyor?**
+MD Viewer macOS App Sandbox içinde çalıştığı için yalnızca açtığınız dosyayı okuyabilir. Belgenin yanında duran görselleri göstermek, `[[bağlantıları]]` çözmek ya da yorumları yanına kaydetmek için klasöre ihtiyaç duyar. Şerit yalnızca o zaman çıkar ve klasör panelini yalnızca **Erişim Ver…** düğmesine tıklamanız açar. MD Viewer klasörü hatırlar ve Ayarlar ▸ *Klasör Erişimi* altında listeler; oradan kaldırabilirsiniz. Bkz. [Klasör erişimi](#klasör-erişimi).
+
+**0.2'den güncelledim, son klasörlerim izin istiyor.**
+1.0 sürümü korumalı alanda çalışır. 0.2.x, son ve favori klasörlerinizi macOS'un artık istediği izin olmadan kaydetmişti; bu yüzden *Yeniden açmak için erişim verin* yazan bir klasör tek bir onay ister: tıklayın, panelde klasörü seçin ve **Erişim Ver**'e tıklayın. MD Viewer o andan sonra hatırlar. Ayarlarınız kendiliğinden taşınır; 0.2.x'in açık sekmeleri ve son belgeler listesi bir kez boş başlar.
+
+**Hem doğrudan indirmeyi hem Mac App Store sürümünü kurdum ve macOS açmak isteyip istemediğimi soruyor.**
+İkisi aynı kimliğe sahip aynı uygulamadır; bu yüzden macOS, açtığınız ikinci sürümü daha önce açtığınız bir uygulamanın farklı bir derlemesi sayıp bir kez sorabilir. **Yine de Aç**'ı seçin; sonrasında ikisi de sormadan açılır.
 
 ## Geri bildirim
 

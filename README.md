@@ -24,7 +24,7 @@
 </p>
 
 <p align="center">
-  Requires macOS 14 or later · Apple silicon and Intel · Developer ID signed and notarized by Apple · Free, no account, works offline
+  Requires macOS 14 or later · Apple silicon and Intel · App Sandbox, Developer ID signed and notarized by Apple · Free, no account, works offline
 </p>
 
 <p align="center">
@@ -35,6 +35,7 @@
   <a href="#why-md-viewer">Why</a> ·
   <a href="#features">Features</a> ·
   <a href="#install">Install</a> ·
+  <a href="#folder-access">Folder access</a> ·
   <a href="#keyboard-shortcuts">Shortcuts</a> ·
   <a href="#faq">FAQ</a> ·
   <a href="docs/USAGE.md">Usage guide</a> ·
@@ -45,8 +46,8 @@
 
 - **Read what agents write, while they write it.** Plans, specs and architecture notes from AI coding agents are Markdown. MD Viewer follows the file as the agent edits it, shows what changed, lets you comment on any passage, and hands those comments back to the agent as a ready-made prompt.
 - **Made for Obsidian vaults.** Open any note or folder and get wikilinks, embeds, callouts, properties, backlinks, tags, quick switching, vault search and canvases, without starting Obsidian.
-- **Light and local.** A native SwiftUI app, a download of about 13 MB, no Electron, no account. Mermaid, KaTeX and everything else are bundled, so it makes no network connections.
-- **Free.** No ads, no telemetry, no subscription. Your documents stay on your Mac. See [PRIVACY.md](PRIVACY.md).
+- **Light and local.** A native SwiftUI app, a download of about 13 MB, no Electron, no account. Mermaid, KaTeX and everything else are bundled, so it works fully offline.
+- **Free, sandboxed and private.** No ads, no telemetry, no subscription. Your documents stay on your Mac, and MD Viewer runs in the macOS App Sandbox: it can only read what you open or allow (see [Folder access](#folder-access)). See [PRIVACY.md](PRIVACY.md).
 
 ## Features
 
@@ -131,9 +132,9 @@ Documents open in tabs on a glass strip. Put two documents (or the same document
 
 #### Folders, vaults, links and tags
 
-**Open Folder…** (**⇧⌘O**) lists the folder's Markdown files in the **Files** sidebar (**⌥⌘3**). The list updates live, and favorite and recent folders are one click away. Click a file for a new tab, **⌥-click** for the right pane, **⌘-click** for a new window.
+**Open Folder…** (**⇧⌘O**) lists the folder's Markdown files in the **Files** sidebar (**⌥⌘3**). You choose the folder in the standard macOS panel, which is also how MD Viewer gets permission to read it, and MD Viewer remembers it. The list updates live, and favorite and recent folders are one click away. Click a file for a new tab, **⌥-click** for the right pane, **⌘-click** for a new window.
 
-When you open a note that belongs to an Obsidian vault, MD Viewer offers once to index the folder. The index is kept in memory only and is never written anywhere; you can turn the prompt off in Settings. With the index, the **Links** sidebar (**⌥⌘6**) shows backlinks and outgoing links with context lines, and **Files ▸ Tags** (the **#** button) shows the nested tag tree: a parent tag includes its children.
+When you open a note that belongs to an Obsidian vault, MD Viewer offers once to index the folder. A note opened on its own first needs access to the vault's top folder; the band asks for it (see [Folder access](#folder-access)). The index is kept in memory only and is never written anywhere; you can turn the prompt off in Settings. With the index, the **Links** sidebar (**⌥⌘6**) shows backlinks and outgoing links with context lines, and **Files ▸ Tags** (the **#** button) shows the nested tag tree: a parent tag includes its children.
 
 <p align="center">
   <img src="docs/screenshots/vault-prompt-en.png" width="860" alt="A one-time prompt offering to index an Obsidian vault">
@@ -196,7 +197,7 @@ The document refreshes by itself when the file changes, even when an agent saves
 
 #### Comments and Send to Agent
 
-Select text, or click the **+** beside a block, and press **⇧⌘K** to leave a comment. Comments never touch your document: they are saved in a side file named `<document>.md.review.md` next to it. **Send to Agent** (**⌥⌘P**, or *Edit ▸ Copy Prompt for Agent*) puts all open comments on the clipboard as a formatted prompt with the document path and the quoted passages, ready to paste into your agent.
+Select text, or click the **+** beside a block, and press **⇧⌘K** to leave a comment. Comments never touch your document: they are saved in a side file named `<document>.md.review.md` next to it. If MD Viewer has no access to the document's folder yet, it keeps the comments inside the app and offers **Grant Access…** in a band at the bottom of the window; once you allow the folder, the comments move next to the document (see [Folder access](#folder-access)). **Send to Agent** (**⌥⌘P**, or *Edit ▸ Copy Prompt for Agent*) puts all open comments on the clipboard as a formatted prompt with the document path and the quoted passages, ready to paste into your agent.
 
 <table>
   <tr>
@@ -236,11 +237,20 @@ Press **Space** on a Markdown file in Finder to preview it with the same rendere
 
 #### Settings
 
-Theme, default view and zoom, printing theme, how new documents open (tab or window), follow defaults, Markdown dialect, vault indexing prompt, interface language (System, Türkçe or English; applied after a restart), remote images and the default Markdown app.
+Theme, default view and zoom, printing theme, how new documents open (tab or window), follow defaults, Markdown dialect, vault indexing prompt, interface language (System, Türkçe or English; applied after a restart), remote images, the folders you have allowed ([Folder access](#folder-access)) and the default Markdown app.
 
 <p align="center">
   <img src="docs/screenshots/settings-en.png" width="720" alt="The Settings window, top and bottom parts side by side">
   <br><sub>Settings (the top and the bottom of the window, side by side).</sub>
+</p>
+
+#### About and Help
+
+**MD Viewer ▸ About MD Viewer** shows the version and build. Click the version line to copy it, together with your macOS version and processor architecture, and paste it into a support request. The buttons open the website, a new email to the developer, the source and downloads page, the issue form and the privacy policy in your default apps. **Licenses and Notices** lists the open-source libraries inside MD Viewer with their full license texts; the texts ship in the app and open without a network connection. The **Help** menu has the same website, issue and privacy links.
+
+<p align="center">
+  <img src="docs/screenshots/about-en.png" width="380" alt="The About window with the version, the developer card and six link buttons">
+  <br><sub>The About window. Click the version to copy it.</sub>
 </p>
 
 ## Install
@@ -259,11 +269,58 @@ shasum -a 256 ~/Downloads/MDViewer.dmg
 
 **Turn on Quick Look.** The preview extension ships inside the app. Copy the app to Applications and open it once. If the preview still does not appear, open System Settings and look for the Quick Look extensions list (on recent macOS versions it is under *Login Items & Extensions*; the exact path differs between macOS versions) and switch on *MD Viewer Quick Look*. If another Markdown Quick Look extension is installed, only one of them can handle `.md` files.
 
-**Mac App Store: coming soon.** MD Viewer is coming to the Mac App Store as "MD Viewer for Markdown Docs". The direct download here stays the main channel.
+<!-- APP_STORE_URL -->
+
+**Mac App Store: coming soon.** MD Viewer is coming to the Mac App Store as "MD Viewer for Markdown Docs". The direct download here stays the main channel. Both are the same sandboxed app.
+
+**Updating from 0.2.x.** Replace the old app with the new one. Your settings carry over automatically. MD Viewer 1.0 is sandboxed, so it starts with the welcome window once, and a recent folder may ask you to allow it again; see the [FAQ](#faq).
+
+**Both versions on one Mac.** If you install the direct download and the Mac App Store version side by side, macOS may ask once, the first time you open the second one, whether you really want to open an app that differs from the version you opened before. Choose **Open Anyway**; after that both open without asking.
 
 **Language.** The interface is available in English and Türkçe and follows your system language. Change it under *View ▸ Language* or in Settings.
 
 **Appearance.** On macOS 26 the interface uses Liquid Glass. On macOS 14 and 15 it uses the system's translucent materials.
+
+## Folder access
+
+MD Viewer runs in the macOS **App Sandbox**; the direct download and the Mac App Store version are sandboxed in the same way. For you it comes down to one rule: MD Viewer can only read what you open or allow. It cannot browse your disk, and no document can make it read files outside the folders you allowed.
+
+**Opening a document never asks for anything.** Permission is needed only when a document points to things *next to* it:
+
+- images beside the document, such as `![chart](images/chart.png)`;
+- the other notes that `[[wikilinks]]` and `![[embeds]]` refer to (for a vault, the top folder of the vault);
+- the comment side file `<name>.md.review.md`, which belongs next to the document so that an AI agent can read it.
+
+When that happens, a **band** appears at the bottom of the document window and says what is missing, for example *Allow folder access to show this document's images*. The band only shows a message and three buttons; it never opens a panel by itself.
+
+<p align="center">
+  <img src="docs/screenshots/access-band-en.png" width="860" alt="A document whose images cannot be shown, with the folder access band at the bottom offering Grant Access, Not Now and Don't Ask for This Folder">
+  <br><sub>The band: this document's images live in a folder MD Viewer has not been allowed to read yet.</sub>
+</p>
+
+- **Grant Access…** opens the standard macOS folder panel. It starts in the folder MD Viewer thinks you need: the document's own folder, or a folder above it when the document refers to `../images` or `![[../note]]`. Choose a folder (the document must be inside it) and click **Grant Access**. The document redraws at once with its images and links, and its comments move next to it.
+- **Not Now** hides the band for this document until you quit MD Viewer.
+- **Don't Ask for This Folder** stops the band for documents in that folder. You can bring it back in Settings.
+
+If the document is inside a folder you already opened with **Open Folder…**, **Grant Access…** can upgrade that permission without showing the panel. Clicking a link to a Markdown file outside the allowed folders opens the panel directly, for the folder of that file.
+
+For safety, MD Viewer will not take access to your whole home folder, a whole disk, system folders, Library or hidden folders. Choose the document's own folder, or a folder above it that is not one of those.
+
+**MD Viewer remembers the folders you allow.** From then on, documents inside an allowed folder open with their images, links and comments and without the band. The permission is stored on your Mac only, as a macOS security-scoped bookmark, and never leaves it.
+
+**Settings ▸ Folder Access** lists every allowed folder with its path, how it is used (*Documents, images and links*, or *Folder browsing only* for a folder you opened with **Open Folder…**) and when it was last used.
+
+- **Remove** takes access away from one folder and **Remove All** from all of them. Nothing on your Mac is deleted; MD Viewer asks again when a document needs the folder.
+- **Add Folder…** allows a folder in advance, so the band does not appear for its documents.
+- **Choose Again…** shows for a folder that was moved, renamed or removed; point MD Viewer at its new place.
+- **Ask Again** brings the band back for folders you told MD Viewer not to ask about.
+
+<p align="center">
+  <img src="docs/screenshots/settings-access-en.png" width="440" alt="The Settings window scrolled to the Folder Access section, which lists one allowed folder with Remove and Add Folder buttons">
+  <br><sub>Settings ▸ Folder Access: the folders you have allowed.</sub>
+</p>
+
+**What this gives you.** The list above is enforced by macOS itself, so MD Viewer cannot read the rest of your Mac, and you can see and change the whole list in Settings. That is the privacy benefit of the sandbox; see [PRIVACY.md](PRIVACY.md).
 
 ## Keyboard shortcuts
 
@@ -296,7 +353,7 @@ Every shortcut is also in the menus.
 
 ## Privacy
 
-MD Viewer collects no data, has no accounts, analytics or tracking, and makes no network connections. Remote images are off by default; if you turn them on, the image servers see your IP address like any website would. The only things the app ever writes into your files are a task checkbox you click and the `.review.md` comment side file. Read the full policy in [PRIVACY.md](PRIVACY.md) (English and Türkçe).
+MD Viewer collects no data, has no accounts, analytics or tracking, and sends nothing over the network: MD Viewer's own code has no networking, no update check and no telemetry. The sandbox entitlement for outgoing connections is there only because macOS's web engine, which draws your documents, cannot start without it. Remote images are off by default; if you turn them on, the image servers see your IP address like any website would. The folder permissions you grant are stored only on your Mac. The only things the app ever writes into your files are a task checkbox you click and the `.review.md` comment side file. Read the full policy in [PRIVACY.md](PRIVACY.md) (English and Türkçe).
 
 ## FAQ
 
@@ -316,13 +373,22 @@ White paper with black text reads better and saves ink. Change it in Settings �
 See [Install](#install). Open the app once from Applications and check the Quick Look extensions list in System Settings. If it still does not appear, run `qlmanage -r` in Terminal to reset the Quick Look cache.
 
 **Does MD Viewer edit my files?**
-Only in two cases: when you click a task checkbox (the `.md` file is updated; ⌘Z undoes it), and when you add comments (saved in a separate `<name>.md.review.md` file; the document itself is not changed). Everything else is read-only.
+Only in two cases: when you click a task checkbox (the `.md` file is updated; ⌘Z undoes it), and when you add comments (saved in a separate `<name>.md.review.md` file; the document itself is not changed). Everything else is read-only, and because of the sandbox MD Viewer can only write to files and folders you opened or allowed.
 
 **Where are my comments stored?**
-Next to the document, in `<name>.md.review.md`. It is plain Markdown. Keep it with the document or delete it when you are done.
+Next to the document, in `<name>.md.review.md`. It is plain Markdown. Keep it with the document or delete it when you are done. Until you allow the document's folder (see [Folder access](#folder-access)), the comments are kept inside the app instead; they move next to the document as soon as you allow it.
 
 **Does MD Viewer check for updates?**
-No. Download new versions from the [Releases page](https://github.com/suleymanozcan/md-viewer/releases). The [changelog](CHANGELOG.md) lists what changed.
+No. The direct download never checks; download new versions from the [Releases page](https://github.com/suleymanozcan/md-viewer/releases), and the [changelog](CHANGELOG.md) lists what changed. The Mac App Store version is updated by the App Store.
+
+**Why does MD Viewer ask for folder permission?**
+MD Viewer runs in the macOS App Sandbox, so it can only read the file you opened. To show images stored next to the document, resolve `[[links]]` or save comments beside it, it needs the folder. The band appears only then, and only a click on **Grant Access…** opens the folder panel. MD Viewer remembers the folder and lists it under Settings ▸ *Folder Access*, where you can remove it. See [Folder access](#folder-access).
+
+**I updated from 0.2 and my recent folders ask for permission.**
+Version 1.0 is sandboxed. Version 0.2.x saved your recent and favorite folders without the permission macOS now requires, so a folder marked *Grant access to open it again* needs one confirmation: click it, choose the folder in the panel and click **Grant Access**. MD Viewer remembers it from then on. Your settings carry over by themselves; the open tabs and the recent documents list of 0.2.x start empty once.
+
+**I have both the direct download and the Mac App Store version, and macOS asks whether I want to open it.**
+They are the same app with the same identifier, so macOS can treat the second one you open as a different build of an app you opened before and ask once. Choose **Open Anyway**; after that both open without asking.
 
 ## Feedback
 
