@@ -1,0 +1,45 @@
+name: Feature request / Özellik isteği
+description: Suggest an improvement or a new feature / Bir iyileştirme ya da yeni özellik önerin
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        MD Viewer is a viewer for Markdown, especially the plans and notes that AI agents write and Obsidian vaults. English and Türkçe are both welcome. / MD Viewer, özellikle yapay zekâ ajanlarının yazdığı plan ve notlar ile Obsidian kasaları için bir Markdown görüntüleyicisidir. Türkçe de İngilizce de yazabilirsiniz.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version / macOS sürümü
+      placeholder: "macOS 26.1"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MD Viewer version / MD Viewer sürümü
+      description: MD Viewer ▸ About MD Viewer. / MD Viewer ▸ MD Viewer Hakkında.
+      placeholder: "0.2.2"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do? / Ne yapmaya çalışıyorsunuz?
+      description: Describe the situation or problem, not only the solution. / Yalnızca çözümü değil, durumu ya da sorunu anlatın.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like MD Viewer to do? / MD Viewer ne yapsın?
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample Markdown / Örnek Markdown
+      description: If the idea is about how some Markdown is shown, paste a small sample. Remove anything private. / Fikir bir Markdown'ın nasıl gösterildiğiyle ilgiliyse küçük bir örnek yapıştırın. Özel her şeyi çıkarın.
+      render: markdown
+    validations:
+      required: false

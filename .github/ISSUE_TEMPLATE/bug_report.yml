@@ -1,0 +1,60 @@
+name: Bug report / Hata bildirimi
+description: Something in MD Viewer does not work or looks wrong / MD Viewer'da bir şey çalışmıyor ya da yanlış görünüyor
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this. English and Türkçe are both welcome. / Bildirdiğiniz için teşekkürler. Türkçe de İngilizce de yazabilirsiniz.
+
+        **Please do not attach private documents.** A short sample that shows the problem is enough. / **Lütfen özel belgelerinizi eklemeyin.** Sorunu gösteren kısa bir örnek yeterli.
+  - type: input
+    id: macos
+    attributes:
+      label: macOS version / macOS sürümü
+      description: Apple menu ▸ About This Mac. / Apple menüsü ▸ Bu Mac Hakkında.
+      placeholder: "macOS 26.1"
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: MD Viewer version / MD Viewer sürümü
+      description: MD Viewer ▸ About MD Viewer. / MD Viewer ▸ MD Viewer Hakkında.
+      placeholder: "0.2.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: mac
+    attributes:
+      label: Mac type / Mac türü
+      options:
+        - Apple Silicon
+        - Intel
+        - Not sure / Emin değilim
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened? / Ne oldu?
+      description: What did you do, what did you expect, and what happened instead? / Ne yaptınız, ne bekliyordunuz, bunun yerine ne oldu?
+    validations:
+      required: true
+  - type: textarea
+    id: sample
+    attributes:
+      label: Sample Markdown / Örnek Markdown
+      description: |
+        A small `.md` snippet that shows the problem. Remove anything private. / Sorunu gösteren küçük bir `.md` parçası. Özel her şeyi çıkarın.
+      render: markdown
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Ekran görüntüleri
+      description: Drag images here. Make sure they do not show private content. / Görselleri buraya sürükleyin. Özel içerik göstermediğinden emin olun.
+    validations:
+      required: false

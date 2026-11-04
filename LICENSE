@@ -1,0 +1,65 @@
+MD Viewer License
+
+Copyright (c) 2026 Minata Entertainment, LLC. All rights reserved.
+
+MD Viewer (the "Software") is free to use, closed-source software. The
+source code is not published. This license applies to the Software as
+distributed in the disk image (DMG) files on the Releases page of this
+repository, and to the documentation and screenshots in this repository.
+
+1. Free use
+   You may download, install and use the Software on any number of
+   Macs that you own or control, for personal, educational and
+   commercial purposes, at no charge.
+
+2. Redistribution
+   You may redistribute the unmodified DMG exactly as published by
+   Minata Entertainment, LLC (together with its SHA-256 checksum, if
+   you wish), free of charge, provided that you do not alter it and
+   you keep this license and the third-party notices intact. You may
+   not sell the Software, charge for access to it, or bundle it with a
+   paid product in a way that makes it look like a paid feature.
+
+3. Restrictions
+   You may not modify the Software, create derivative works from it,
+   remove or alter its copyright and license notices, or present it as
+   your own. You may not reverse engineer, decompile or disassemble the
+   Software, except to the extent that applicable law expressly allows
+   this despite this restriction.
+
+4. Your documents
+   The Software only displays the files you open. You keep all rights
+   to your documents, and this license gives Minata Entertainment, LLC
+   no rights to them.
+
+5. Third-party components
+   The Software includes open-source components, which are licensed
+   under their own terms. They are listed in THIRD_PARTY_NOTICES.md.
+   Nothing in this license limits the rights those terms give you for
+   those components.
+
+6. Ownership
+   The Software is licensed, not sold. Minata Entertainment, LLC keeps
+   all rights that this license does not expressly give to you. The
+   names "MD Viewer" and "Minata Entertainment" and the app icon are
+   not licensed for use outside of describing the unmodified Software.
+
+7. No warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+   EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+   NON-INFRINGEMENT.
+
+8. Limitation of liability
+   TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT WILL MINATA
+   ENTERTAINMENT, LLC BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
+   OF OR OTHER DEALINGS IN THE SOFTWARE.
+
+9. Termination
+   This license ends automatically if you break its terms. When it
+   ends, you must stop using the Software and delete your copies.
+
+10. Contact
+    Minata Entertainment, LLC, Antalya, Türkiye - hello@minata.dev

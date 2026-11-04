@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: FAQ and usage guide / SSS ve kullanım kılavuzu
+    url: https://github.com/suleymanozcan/md-viewer#faq
+    about: Answers about zoom keys, Obsidian syntax, remote images, printing and Quick Look. / Yakınlaştırma tuşları, Obsidian söz dizimi, uzak görseller, yazdırma ve Quick Look hakkında yanıtlar.
+  - name: Email Minata Entertainment / E-posta
+    url: mailto:hello@minata.dev
+    about: Privacy questions, security reports and anything that should not be public. / Gizlilik soruları, güvenlik bildirimleri ve herkese açık olmaması gereken her şey.
