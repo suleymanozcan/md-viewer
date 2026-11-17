@@ -195,6 +195,10 @@ Dosya değiştiğinde belge kendiliğinden yenilenir; ajan dosyayı üzerine yaz
   <br><sub>Değişiklikler kenar çubuğu silinen ve eklenen satırları gösterir; yeşil çubuklar değişen blokları işaretler.</sub>
 </p>
 
+#### Özet kartı
+
+Araç çubuğunun altındaki küçük kart belgeyi bir bakışta özetler; değerler dosyanın kendisinden sayılır (yapay zekâ yok): **görev ilerlemesi** (tıklayınca ilk açık göreve gider), **açık yorumlar**, **bölümler** ve son *Gördüm Olarak İşaretle*'den beri **eklenen ve silinen satırlar**. Bir alana tıklayınca ilgili kenar çubuğu açılır. Ajan yazarken sayılar canlı güncellenir. Kart yazdırılmaz ve dışa aktarılmaz; **Görünüm ▸ Özeti Göster** ya da Ayarlar ▸ *İçerik* ile kapatılır.
+
 #### Yorumlar ve Ajana Gönder
 
 Metni seçin ya da bir bloğun yanındaki **+** işaretine tıklayın ve yorum eklemek için **⇧⌘K**'ya basın. Yorumlar belgenize **dokunmaz**: yanındaki `<belge>.md.review.md` adlı bir yan dosyada saklanır. MD Viewer belgenin klasörüne henüz erişemiyorsa yorumları uygulamanın içinde tutar ve pencerenin altındaki şeritte **Erişim Ver…** önerir; klasöre izin verdiğinizde yorumlar belgenin yanına taşınır ([Klasör erişimi](#klasör-erişimi)). **Ajana Gönder** (**⌥⌘P** ya da *Düzen ▸ Ajan İçin İstemi Kopyala*) açık yorumların hepsini belge yolu ve alıntılarla biçimli bir istem olarak panoya koyar; ajanınıza yapıştırmanız yeter.

@@ -2,6 +2,16 @@
 
 All notable user-visible changes to MD Viewer are listed here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [1.1.0] - 2026-11-17
+
+### Added
+
+- **Summary card** under the toolbar, counted from the document (no AI): task progress (click to jump to the first open task), open comments, sections, and the lines added and removed since you last marked changes as seen. Click an item to open the matching sidebar. It is not printed or exported. Turn it off with **View ▸ Show Summary** or in Settings ▸ Content.
+
+### Fixed
+
+- In full screen, the tab strip and the Open and Settings buttons were hidden behind an empty system title bar, so only the current document was visible. They now stay visible in full screen; the window buttons appear when you move the pointer to the top edge.
+
 ## [1.0.0] - 2026-11-04
 
 MD Viewer 1.0.0 is the first sandboxed release. The direct download (Developer ID, notarized by Apple) and the Mac App Store version are the same app.

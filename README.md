@@ -195,6 +195,10 @@ The document refreshes by itself when the file changes, even when an agent saves
   <br><sub>The Changes sidebar shows removed and added lines; green bars mark the changed blocks.</sub>
 </p>
 
+#### Summary card
+
+A small card under the toolbar sums up the document at a glance, counted from the file itself (no AI): **task progress** (click to jump to the first open task), **open comments**, **sections**, and the lines **added and removed since you last marked changes as seen**. Click an item to open the matching sidebar. The numbers update live while an agent writes. The card is never printed or exported; turn it off with **View ▸ Show Summary** or in Settings ▸ *Content*.
+
 #### Comments and Send to Agent
 
 Select text, or click the **+** beside a block, and press **⇧⌘K** to leave a comment. Comments never touch your document: they are saved in a side file named `<document>.md.review.md` next to it. If MD Viewer has no access to the document's folder yet, it keeps the comments inside the app and offers **Grant Access…** in a band at the bottom of the window; once you allow the folder, the comments move next to the document (see [Folder access](#folder-access)). **Send to Agent** (**⌥⌘P**, or *Edit ▸ Copy Prompt for Agent*) puts all open comments on the clipboard as a formatted prompt with the document path and the quoted passages, ready to paste into your agent.
